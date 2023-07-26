@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Detection of contrails</title>
+    <meta name="description" content="Love UI Kit." />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Bootstrap 4-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+        integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <!--icons-->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--vendors-->
+    <link rel="stylesheet" href="js/vendors/daterangepicker/daterangepicker.css" />
+    <!--custom css-->
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/colors.css" />
+    <link rel="stylesheet" href="css/demo.css" />
+    <link rel="stylesheet" href="ka.css" />
+</head>
+
+<body style="background-image: url('C:\Users\USER\Downloads\kagg\wired_ui_kit-master\img\dev.jpg'); background-size: cover;">
+
+    <div class="wrapper">
+        <!--header section-->
+        <section class="hero-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 offset-md-2">
+                        <div class="brand">
+                            <h1 class="text-white">Detection of Contrails</h1>
+                            <h5 class="text-uppercase mb-5">
+                                Upload your image below
+                            </h5>
+                            <div class="upload-btn-wrapper">
+                                <button class="btn1">Upload a file</button>
+                                <input type="file" name="myfile" id="imageInput" onchange="displayImage()" />
+                            </div>
+                            <div id="imageContainer"></div>
+                            <div id="buttons">
+                                <div class="row">
+                                    <div class="col-md-8 offset-md-2">
+                                        <a href="file:///C:/Users/USER/Downloads/kagg/wired_ui_kit-master/kag2.html">
+                                            <button class="btn2"><em class="ion-android-checkmark-circle"></em>
+                                                Predict</button>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        function displayImage() {
+            const imageInput = document.getElementById('imageInput');
+            const imageContainer = document.getElementById('imageContainer');
+
+            if (imageInput.files && imageInput.files[0]) {
+                const reader = new FileReader();
+
+                reader.onload = function (e) {
+                    const image = document.createElement('img');
+                    image.src = e.target.result;
+                    image.style.maxWidth = '40%';
+                    image.style.marginTop = '10px';
+                    image.style.marginBottom = '10px';
+                    imageContainer.innerHTML = '';
+                    imageContainer.appendChild(image);
+                }
+
+                reader.readAsDataURL(imageInput.files[0]);
+            }
+        }
+    </script>
+
+</body>
+
+</html>
